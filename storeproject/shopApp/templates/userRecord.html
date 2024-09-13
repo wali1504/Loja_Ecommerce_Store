@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Records - Lojaf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #333;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .user-table th, .user-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #555;
+        }
+
+        .user-table th {
+            background-color: #1abc9c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .user-table tr:hover {
+            background-color: #1c1c1c;
+        }
+
+        .user-table tr td {
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .user-table th, .user-table td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Records</h2>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

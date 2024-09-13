@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Records</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .edit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #218838;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Editing</th>
+                <th>Deletion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.SerialNumber }}</td>
+                <td>{{ product.ProductName }}</td>
+                <td>{{ product.Description }}</td>
+                <td>{{ product.Category }}</td>
+                <td>{{ product.Price }}</td>
+                <td>{{ product.StockQuantity }}</td>
+                <td>
+                    <a href="{% url 'edit' product.id %}" class="edit-btn">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete' product.id %}" class="delete-btn">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

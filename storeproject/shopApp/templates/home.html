@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja - E-commerce Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            margin-top: 60px;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 18px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #555;
+            transform: translateY(-3px);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .btn {
+                padding: 15px 25px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to Loja</h1>
+    </div>
+
+    <div class="container">
+        <div class="button-container">
+            <a href="{% url 'register' %}" class="btn">
+                <i class="fas fa-user-plus"></i> SIGNUP
+            </a>
+            <a href="{% url 'login' %}" class="btn">
+                <i class="fas fa-sign-in-alt"></i> LOGIN
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
